@@ -6,7 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MrTomato.Models;
 using MrTomato.MyContext;
+using MrTomato.MyContext.Repository;
+using MrTomato.Services;
 
 namespace MrTomato
 {
@@ -25,11 +28,16 @@ namespace MrTomato
             services.AddCors();
 
             services.AddDbContext<AppContext>(
-        options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
-
+            options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+            services.AddScoped<CategoryService>();
             services.AddControllers();
-        
 
+
+            //Repository
+            services.AddTransient<IRepository<Category>, Repository<Category>>();
+
+            //AutoMapper
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
