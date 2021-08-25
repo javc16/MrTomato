@@ -28,6 +28,7 @@ namespace MrTomato.Services
 
         public async Task<Response> RegisterUser(UserDTO user)
         {
+            user.role = "Normal";
             var applicationUser = new User()
             {
                 UserName = user.username,
