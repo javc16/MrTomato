@@ -1,0 +1,33 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#">MrTomato</a></mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+  
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/">Home</a>
+        </li>
+  
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/tickets">Tickets</a>
+        </li>
+  
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        <button class="btn btn-primary" type="submit" mdbWavesEffect routerLink="/sign-in" *ngIf="!readLocalStorageValue('token')">Login</button>
+        <button class="btn btn-primary" type="submit" *ngIf="readLocalStorageValue('token')" (click)="removeLocalStorageValue('token')">LogOut</button>
+    </ul>
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->
+
+ 
