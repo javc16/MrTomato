@@ -37,6 +37,9 @@ namespace MrTomato.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("role")
+                        .HasColumnType("varchar(max)");
+
                     b.HasKey("id");
 
                     b.ToTable("Category", "dbo");

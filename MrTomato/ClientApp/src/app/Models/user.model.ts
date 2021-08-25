@@ -6,4 +6,5 @@ export class User
     firstName:string;
     lastName:string;
     name:string;
+    role:string;
 }

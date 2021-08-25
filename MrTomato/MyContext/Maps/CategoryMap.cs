@@ -17,6 +17,7 @@ namespace MrTomato.MyContext.Maps
             builder.Property(x=>x.id).IsRequired().UseIdentityColumn();
             builder.Property(x=>x.name).IsRequired();
             builder.Property(x => x.description).HasColumnType("varchar(max)");
+            builder.Property(x => x.role).HasColumnType("varchar(max)");
             builder.Property(x => x.isActive);
         }
     }

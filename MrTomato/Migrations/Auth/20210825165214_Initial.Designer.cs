@@ -10,7 +10,7 @@ using MrTomato.MyContext;
 namespace MrTomato.Migrations.Auth
 {
     [DbContext(typeof(AuthContext))]
-    [Migration("20210824234927_Initial")]
+    [Migration("20210825165214_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

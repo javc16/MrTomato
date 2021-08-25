@@ -54,5 +54,7 @@ namespace MrTomato.Controllers
         {
             return Ok(await _categoryService.DeleteCategory(item));
         }
+
+        //[Autorize(Roles="Admin")]
     }
 }

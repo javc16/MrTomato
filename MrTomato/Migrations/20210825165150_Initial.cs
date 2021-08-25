@@ -2,7 +2,7 @@
 
 namespace MrTomato.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,6 +18,7 @@ namespace MrTomato.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     description = table.Column<string>(type: "varchar(max)", nullable: true),
+                    role = table.Column<string>(type: "varchar(max)", nullable: true),
                     isActive = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

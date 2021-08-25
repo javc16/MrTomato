@@ -21,6 +21,7 @@ import { UserService } from './Services/User/user.service';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptor } from './Components/Auth/auth.interceptor';
+import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AuthInterceptor } from './Components/Auth/auth.interceptor';
     NavbarComponent,
     SignUpComponent,
     SignInComponent,
+    ForbiddenComponent,
     
   ],
   imports: [

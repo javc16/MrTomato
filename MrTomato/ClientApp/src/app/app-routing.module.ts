@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./Components/Auth/auth.guard";
 import { CategoryComponent } from "./Components/category/category.component";
+import { ForbiddenComponent } from "./Components/forbidden/forbidden.component";
 import { SignInComponent } from "./Components/sign-in/sign-in.component";
 import { SignUpComponent } from "./Components/sign-up/sign-up.component";
 import { CounterComponent } from "./counter/counter.component";
@@ -15,23 +16,28 @@ const routes: Routes = [
     {
       path: 'categories',
       component: CategoryComponent,
-      canActivate:[AuthGuard]
-
+      canActivate:[AuthGuard],
+      data:{permittedRoles:['Admin']}
     }, 
     {
       path: 'sign-up',
       component: SignUpComponent,
-      canActivate:[AuthGuard]
+      canActivate:[AuthGuard],
+      data:{permittedRoles:['Admin']}
     },
     {
       path: 'sign-in',
       component: SignInComponent,
-    },  
+    },
+    {
+      path: 'forbidden',
+      component: ForbiddenComponent,
+    },   
   ];
   
   @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
   })
-  export class AppRoutingModule { }
+  export class AppRoutingModule {  }
   

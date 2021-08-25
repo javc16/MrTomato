@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { ifError } from "assert";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -23,7 +24,10 @@ export class AuthInterceptor implements HttpInterceptor {
                     err => {
                         if (err.status == 401){
                             localStorage.removeItem('token');
-                            this.router.navigateByUrl('/user/login');
+                            this.router.navigateByUrl('/sign-in');
+                        }else if(err.status == 403)
+                        {
+                            this.router.navigateByUrl('/forbidden');
                         }
                     }
                 )

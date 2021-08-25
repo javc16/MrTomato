@@ -40,6 +40,7 @@ namespace MrTomato
             options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
             services.AddDbContext<AuthContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
             services.AddDefaultIdentity<User>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AuthContext>();
 
 

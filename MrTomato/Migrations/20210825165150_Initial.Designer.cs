@@ -9,8 +9,8 @@ using MrTomato.MyContext;
 namespace MrTomato.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20210822233224_initial")]
-    partial class initial
+    [Migration("20210825165150_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,9 @@ namespace MrTomato.Migrations
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("role")
+                        .HasColumnType("varchar(max)");
 
                     b.HasKey("id");
 
